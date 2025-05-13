@@ -119,4 +119,8 @@ def send_newsletter(to_email: str, md_body: str, img64: str):
         subject="Your Personalised Financial Newsletter",
         html_content=html,
     )
-    SendGridAPIClient(sg_key).send(msg)
+    response = SendGridAPIClient(sg_key).send(msg)
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+    
